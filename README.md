@@ -31,3 +31,7 @@ npm run dev
 ```
 npm run build
 ```
+
+### If have something can't import third party component
+
+- 1 Declate modeule in vit-env.d.ts
