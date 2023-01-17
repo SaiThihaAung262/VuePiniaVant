@@ -29,3 +29,7 @@ export type ArticleData = {
   list: ArticleInfo[];
   total: number;
 };
+
+export type HomeData = {
+  articleData: ArticleData[];
+};

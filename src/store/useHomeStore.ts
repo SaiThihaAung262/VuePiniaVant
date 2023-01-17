@@ -1,17 +1,21 @@
 import { defineStore } from "pinia";
 import { useLocalStorage } from "@vueuse/core";
 import { getArticles } from "../api/other";
-import { ArticleInfo, ArticleData } from "../types";
+import { ArticleData } from "../types";
 
 export const useHomeStore = defineStore("home", {
   state: () => {
     return {
-      articleLists: [] as ArticleInfo[],
+      articleData: {} as ArticleData,
     };
   },
   actions: {
     async getArticleData(): Promise<ArticleData> {
       return await getArticles().then((res) => {
+        this.articleData = {
+          list: res.data.list,
+          total: res.data.total,
+        };
         return res.data;
       });
     },
