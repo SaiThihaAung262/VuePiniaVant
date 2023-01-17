@@ -9,6 +9,8 @@
 
 ### 1 . Clone from git
 
+[I'm an inline-style link](https://www.google.com)
+
 ```
 git clone https://github.com/BuuTii262/VueMobileTemplate.git
 ```
