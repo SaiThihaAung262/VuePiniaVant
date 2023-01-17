@@ -1,4 +1,4 @@
-#Mobile Template with Vue js#
+# Mobile Template with Vue js
 
 - Vue js (^3.2.41)
 - Vite (^3.2.3)
