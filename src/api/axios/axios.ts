@@ -1,6 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import router from "../../router/index";
-import store from "../../store/user";
 
 const service: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_APP_HOST,
@@ -16,18 +15,10 @@ const service: AxiosInstance = axios.create({
 service.interceptors.request.use(
   //Success request
   (config) => {
-    let token: string = store.state.user.user.token as string;
-    if (token) {
-      config.headers = {
-        Authorization: token,
-        "Accept-Language": "en",
-      };
-    } else {
-      config.headers = {
-        Authorization: token,
-        "Accept-Language": "en",
-      };
-    }
+    config.headers = {
+      // Authorization: token,
+      // "Accept-Language": "en",
+    };
     return config;
   },
   (error) => {
@@ -50,16 +41,7 @@ service.interceptors.response.use(
   },
   //Fail response
   (error) => {
-    // switch (error.response.status) {
-    //   case 412:
-    //     router.push("/home");
-    //     localStorage.clear();
-    //     break;
-    //   case 401:
-    //     router.push("/home");
-    //     localStorage.clear();
-    //     break;
-    // }
+    // Can handle error response with 'error.response.status'
     return Promise.reject(error);
   }
 );
