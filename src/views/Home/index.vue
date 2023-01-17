@@ -9,8 +9,11 @@
     <br />
 
     <div v-for="(item, index) in articleList" :key="index">
-      <p>{{ item.id }}</p>
+      <p v-html="item.content" />
+      <br />
     </div>
+    <div>total article is : {{ totalArticle }}</div>
+    <br />
 
     <p>User name :{{ userName }}</p>
     <p>Admin name :{{ adminName }}</p>
