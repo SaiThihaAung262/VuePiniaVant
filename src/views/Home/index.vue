@@ -2,7 +2,6 @@
   <div class="home">
     <h1>This is home page</h1>
     <br />
-
     <div v-for="(item, index) in articleList" :key="index">
       <p v-html="item.content" />
       <br />
