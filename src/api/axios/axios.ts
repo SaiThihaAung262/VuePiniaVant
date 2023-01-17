@@ -32,7 +32,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   //Success response
   (res) => {
-    if (res.data.code != 0) {
+    if (res.data.err_code != 0) {
       console.log(res.data.err_msg);
       return Promise.reject(res.data);
     }

@@ -8,6 +8,10 @@
     <br />
     <br />
 
+    <div v-for="(item, index) in articleList" :key="index">
+      <p>{{ item.id }}</p>
+    </div>
+
     <p>User name :{{ userName }}</p>
     <p>Admin name :{{ adminName }}</p>
   </div>
@@ -17,7 +21,8 @@
 import { defineComponent, toRefs, reactive, onMounted, computed } from "vue";
 import { useUserStore } from "../../store/user";
 import { useAdminStore } from "../../store/admin";
-
+import { useHomeStore } from "../../store/home";
+import { ArticleInfo } from "../../types/index";
 export default defineComponent({
   name: "home",
   layout: "home",
@@ -26,9 +31,12 @@ export default defineComponent({
   setup() {
     let userStore = useUserStore();
     let adminStore = useAdminStore();
+    let homeStore = useHomeStore();
     const state = reactive({
       userName: computed(() => userStore.user?.name),
       adminName: computed(() => adminStore.admin?.username),
+      articleList: [] as ArticleInfo[],
+      totalArticle: 0,
     });
 
     const setMyUser = () => {
@@ -48,7 +56,17 @@ export default defineComponent({
       console.log("My Admin name is 🍍::::", adminStore.admin?.username);
     };
 
-    onMounted(() => {});
+    const getHomeArticleList = () => {
+      homeStore.getArticleData().then((res) => {
+        state.articleList = res.list;
+        state.totalArticle = res.total;
+        console.log("Here is result in mounted home : ", state.articleList);
+      });
+    };
+
+    onMounted(() => {
+      getHomeArticleList();
+    });
     return {
       ...toRefs(state),
       setMyUser,

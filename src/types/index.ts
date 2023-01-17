@@ -15,3 +15,17 @@ export type ResponseData = {
   err_msg: string;
   data: any;
 };
+
+export type ArticleInfo = {
+  content: string;
+  id: number;
+  sort: number;
+  title: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export type ArticleData = {
+  list: ArticleInfo[];
+  total: number;
+};
