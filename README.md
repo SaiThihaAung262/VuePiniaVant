@@ -7,15 +7,27 @@
 - Vue-router (^4.1.6)
 - Typescript (^4.6.4)
 
-#1 . Clone from git
+### 1 . Clone from git
 
 ```
 git clone https://github.com/BuuTii262/VueMobileTemplate.git
 ```
 
-#2 Install npm and run
+### 2 To connect api
+
+- Go to .env file and change api host
+- Change APP name
+- Can use them by calling 'import.meta.env.VITE_APP_NAME'
+
+### 3 Install npm and run
 
 ```
 npm install
 npm run dev
+```
+
+### 4 To build
+
+```
+npm run build
 ```
