@@ -1,0 +1,80 @@
+<template>
+  <div class="home">
+    <h1>This is home page</h1>
+    <br />
+    <van-button type="primary" @click="setMyUser">Set User</van-button>
+    &nbsp;
+    <van-button type="primary" @click="setMyAdmin">Set Admin</van-button>
+    <br />
+    <br />
+
+    <p>User name :{{ userName }}</p>
+    <p>Admin name :{{ adminName }}</p>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, toRefs, reactive, onMounted, computed } from "vue";
+import { useUserStore } from "../../store/user";
+import { useAdminStore } from "../../store/admin";
+
+export default defineComponent({
+  name: "home",
+  layout: "home",
+  components: {},
+
+  setup() {
+    let userStore = useUserStore();
+    let adminStore = useAdminStore();
+    const state = reactive({
+      userName: computed(() => userStore.user?.name),
+      adminName: computed(() => adminStore.admin?.username),
+    });
+
+    const setMyUser = () => {
+      let userData = {
+        name: "My user name",
+        age: 10,
+      };
+      userStore.addUserList(userData);
+      console.log("My user name is 🍍::::", userStore.user?.name);
+    };
+    const setMyAdmin = () => {
+      let adminData = {
+        username: "My Admin name",
+        password: "11111",
+      };
+      adminStore.addAdminList(adminData);
+      console.log("My Admin name is 🍍::::", adminStore.admin?.username);
+    };
+
+    onMounted(() => {});
+    return {
+      ...toRefs(state),
+      setMyUser,
+      setMyAdmin,
+    };
+  },
+});
+</script>
+
+<style lang="scss" scoped>
+.home {
+  h1 {
+    color: red;
+    font-size: px2rem(50);
+    background: blue;
+    width: 100%;
+  }
+  .btn {
+    background: red;
+  }
+  .mybBtn {
+    display: block;
+    margin: 0 auto;
+    background: blue;
+    border-radius: px2rem(10);
+    color: #fff;
+  }
+}
+</style>
