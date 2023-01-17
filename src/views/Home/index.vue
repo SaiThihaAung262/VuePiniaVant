@@ -48,20 +48,10 @@ export default defineComponent({
 <style lang="scss" scoped>
 .home {
   h1 {
-    color: red;
+    color: rgb(255, 255, 255);
     font-size: px2rem(50);
-    background: blue;
+    background: rgb(154, 154, 219);
     width: 100%;
-  }
-  .btn {
-    background: red;
-  }
-  .mybBtn {
-    display: block;
-    margin: 0 auto;
-    background: blue;
-    border-radius: px2rem(10);
-    color: #fff;
   }
 }
 </style>
