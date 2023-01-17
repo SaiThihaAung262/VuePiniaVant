@@ -33,3 +33,7 @@ export type ArticleData = {
 export type HomeData = {
   articleData: ArticleData[];
 };
+
+export type UserInfo = {
+  access_token: string;
+};
