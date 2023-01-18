@@ -1,13 +1,13 @@
 <template>
   <div class="home">
     <h1>This is home page</h1>
-    <br />
+    <br/>
     <div v-for="(item, index) in articleList" :key="index">
-      <p v-html="item.content" />
-      <br />
+      <p v-html="item.content"/>
+      <br/>
     </div>
     <div>total article is : {{ totalArticle }}</div>
-    <br />
+    <br/>
     <van-button type="primary" size="small" @click="loginHandler">
       Login
     </van-button>
@@ -15,10 +15,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, reactive, onMounted, computed } from "vue";
-import { useHomeStore } from "../../store/useHomeStore";
-import { ArticleInfo } from "../../types/index";
-import { useUserStore } from "../../store/useUserStore";
+import {defineComponent, toRefs, reactive, onMounted, computed} from "vue";
+import {useHomeStore} from "../../store/useHomeStore";
+import {ArticleInfo, LoginData} from "../../types/index";
+import {useUserStore} from "../../store/useUserStore";
 
 export default defineComponent({
   name: "home",
@@ -41,7 +41,7 @@ export default defineComponent({
     };
 
     const loginHandler = () => {
-      let data = {
+      let data: LoginData = {
         address_type: "ETH",
         wallet_address: "0x893e2765c5c63e60f297c2ad3420f8c23c7b8ce5",
       };
