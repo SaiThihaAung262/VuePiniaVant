@@ -16,6 +16,7 @@
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
     "lodash-es": "^4.17.21",
+    "moment": "^2.29.4",
     "node-sass": "^7.0.3",
     "pinia": "^2.0.29",
     "sass-loader": "^13.1.0",
