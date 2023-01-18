@@ -1,6 +1,6 @@
 import axios from "./axios";
-import { ResponseData } from "../../types";
-import { cloneDeep, omit, assign } from "lodash-es";
+import {ResponseData} from "../../types";
+import {cloneDeep, omit, assign} from "lodash-es";
 
 /**
  * @Get_method
@@ -9,21 +9,21 @@ import { cloneDeep, omit, assign } from "lodash-es";
  * @returns
  */
 export function get(apiUrl: string, params?: any): Promise<ResponseData> {
-  let paramsData = {};
-  if (params && params.page && params.pageSize) {
-    const data = cloneDeep(params);
-    const pager = {
-      page: data.page,
-      pageSize: data.pageSize,
-    };
-    const pagerParams = { pager: JSON.stringify(pager) };
+    let paramsData = {};
+    if (params && params.page && params.pageSize) {
+        const data = cloneDeep(params);
+        const pager = {
+            page: data.page,
+            pageSize: data.pageSize,
+        };
+        const pagerParams = {pager: JSON.stringify(pager)};
 
-    const remainderParams = omit(data, ["page", "pageSize", "options"]);
-    paramsData = assign(pagerParams, data.options, remainderParams);
-  } else {
-    paramsData = params;
-  }
-  return axios.get(apiUrl, { params: paramsData });
+        const remainderParams = omit(data, ["page", "pageSize", "options"]);
+        paramsData = assign(pagerParams, data.options, remainderParams);
+    } else {
+        paramsData = params;
+    }
+    return axios.get(apiUrl, {params: paramsData});
 }
 
 /**
@@ -33,21 +33,22 @@ export function get(apiUrl: string, params?: any): Promise<ResponseData> {
  * @returns
  */
 export function post(apiUrl: string, params?: any): Promise<ResponseData> {
-  let postData = {};
-  if (params && params.page && params.pageSize) {
-    const data = cloneDeep(params);
-    const pager = {
-      page: data.page,
-      pageSize: data.pageSize,
-    };
-    const pagerParams = { pager: pager };
+    let postData = {};
+    if (params && params.page && params.pageSize) {
+        const data = cloneDeep(params);
 
-    const remainderParams = omit(data, ["page", "pageSize", "options"]);
-    postData = assign(pagerParams, { options: data.options }, remainderParams);
-  } else {
-    postData = params;
-  }
-  return axios.post(apiUrl, postData);
+        const pager = {
+            page: data.page,
+            pageSize: data.pageSize,
+        };
+        const pagerParams = {pager: pager};
+
+        const remainderParams = omit(data, ["page", "pageSize", "options"]);
+        postData = assign(pagerParams, {options: data.options}, remainderParams);
+    } else {
+        postData = params;
+    }
+    return axios.post(apiUrl, postData);
 }
 
 /**
@@ -57,7 +58,7 @@ export function post(apiUrl: string, params?: any): Promise<ResponseData> {
  * @returns
  */
 export function $put(apiUrl: string, params?: any): Promise<ResponseData> {
-  return axios.put(apiUrl, params);
+    return axios.put(apiUrl, params);
 }
 
 /**
@@ -67,5 +68,5 @@ export function $put(apiUrl: string, params?: any): Promise<ResponseData> {
  * @returns
  */
 export function $delete(apiUrl: string, params?: any): Promise<ResponseData> {
-  return axios.delete(apiUrl, { data: params });
+    return axios.delete(apiUrl, {data: params});
 }
