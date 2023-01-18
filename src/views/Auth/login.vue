@@ -16,8 +16,8 @@ import {LoginData} from "../../types/index";
 import {useUserStore} from "../../store/useUserStore";
 
 export default defineComponent({
-  name: "home",
-  layout: "home",
+  name: "login",
+  layout: "login",
   components: {},
 
   setup() {

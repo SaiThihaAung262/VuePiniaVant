@@ -1,13 +1,14 @@
 import {defineStore} from "pinia";
-import {transformWithEsbuild} from "vite";
 import {login} from "../api/other";
 import {UserInfo, LoginData} from "../types";
 import router from "../router";
+import {useLocalStorage} from "@vueuse/core";
+
 
 export const useUserStore = defineStore("user-store", {
     state: () => {
         return {
-            user: {} as UserInfo,
+            user: useLocalStorage("user", {} as UserInfo),
         };
     },
     actions: {
