@@ -8,17 +8,13 @@
     </div>
     <div>total article is : {{ totalArticle }}</div>
     <br/>
-    <van-button type="primary" size="small" @click="loginHandler">
-      Login
-    </van-button>
   </div>
 </template>
 
 <script lang="ts">
 import {defineComponent, toRefs, reactive, onMounted, computed} from "vue";
 import {useHomeStore} from "../../store/useHomeStore";
-import {ArticleInfo, LoginData} from "../../types/index";
-import {useUserStore} from "../../store/useUserStore";
+import {ArticleInfo} from "../../types/index";
 
 export default defineComponent({
   name: "home",
@@ -27,7 +23,6 @@ export default defineComponent({
 
   setup() {
     let homeStore = useHomeStore();
-    let userStore = useUserStore();
     const state = reactive({
       articleList: [] as ArticleInfo[],
       totalArticle: 0,
@@ -40,23 +35,11 @@ export default defineComponent({
       });
     };
 
-    const loginHandler = () => {
-      let data: LoginData = {
-        address_type: "ETH",
-        wallet_address: "0x893e2765c5c63e60f297c2ad3420f8c23c7b8ce5",
-      };
-
-      userStore.userLogin(data).then((res) => {
-        console.log("Here is res from home : ", res);
-      });
-    };
-
     onMounted(() => {
       getHomeArticleList();
     });
     return {
       ...toRefs(state),
-      loginHandler,
     };
   },
 });
