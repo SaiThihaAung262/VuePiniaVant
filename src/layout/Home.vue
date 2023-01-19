@@ -9,8 +9,8 @@
         v-for="(route, index) in homeRouters"
         :key="index"
     >
-      <!--{{ t(route.meta.title) }}-->
-      {{ route.meta.title }}
+      {{ t(route.meta.title) }}
+      <!--      {{ route.meta.title }}-->
       <template #icon>
         <van-icon class="menu-icon" :name="route.meta.icon_select" v-if="active == index"/>
         <van-icon class="menu-icon" :name="route.meta.icon" v-else/>
@@ -24,7 +24,9 @@
 import {ref, reactive, onMounted, computed} from "vue";
 import {homeRouters} from "../router/modules/home";
 import {useRouter, useRoute} from "vue-router";
+import {useI18n} from "vue-i18n";
 
+const {t} = useI18n();
 const router = useRouter();
 const route = useRoute();
 const activeRoute = computed(() => {

@@ -5,7 +5,7 @@ export const homeRouters = [
         path: "/home",
         name: "home",
         meta: {
-            title: "Home",
+            title: "tabbar.home",
             icon: "wap-home-o",
             icon_select: "wap-home",
         },
@@ -15,14 +15,13 @@ export const homeRouters = [
         path: "/account",
         name: "account",
         meta: {
-            title: "Account",
+            title: "tabbar.account",
             icon: "smile-o",
             icon_select: "smile",
         },
         component: () => import("./../../views/Account/index.vue"),
     },
 ];
-
 export const homeRoute: RouteRecordRaw = {
     path: "/",
     component: () => import("/@/layout/Home.vue"),
