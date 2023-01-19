@@ -39,11 +39,6 @@ const active = computed({
   },
 });
 
-let serviceUrl = ref("");
-if (localStorage.getItem("service")) {
-} else {
-  serviceUrl.value = "";
-}
 
 onMounted(() => {
 });
