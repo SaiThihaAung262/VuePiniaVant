@@ -1,7 +1,9 @@
 <template>
   <div class="home">
-    <h1>This is home page</h1>
+    <Nav title="Home" :left-arrow="false" />
     <br/>
+    <br />
+    <br />
     <div v-for="(item, index) in articleList" :key="index">
       <p v-html="item.content"/>
       <br/>
@@ -15,11 +17,14 @@
 import {defineComponent, toRefs, reactive, onMounted, computed} from "vue";
 import {useHomeStore} from "../../store/useHomeStore";
 import {ArticleInfo} from "../../types/index";
+import Nav from "../../components/CommonNav/index.vue"
 
 export default defineComponent({
   name: "home",
   layout: "home",
-  components: {},
+  components: {
+    Nav
+  },
 
   setup() {
     let homeStore = useHomeStore();
