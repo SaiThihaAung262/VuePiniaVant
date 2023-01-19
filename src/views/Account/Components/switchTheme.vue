@@ -21,8 +21,10 @@ watch(() => mode.value,
 
       if (mode.value) {
         htmlElement.setAttribute("theme", "dark");
+        //Later add to localstorage
       } else {
         htmlElement.setAttribute("theme", "light");
+        //Later add to localstorage
       }
     }
 )
