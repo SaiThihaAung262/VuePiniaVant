@@ -17,7 +17,6 @@ let changedLang;
 export function changeLang(changesLan: "en" | "cn") {
     i18n.global.locale.value = changesLan;
     changedLang = changesLan;
-    // store.dispatch("user/setLang", changesLan);
 }
 
 export default i18n;
