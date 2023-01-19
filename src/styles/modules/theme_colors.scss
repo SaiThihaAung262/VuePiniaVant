@@ -1,7 +1,9 @@
 $test: 10px;
 
 [theme="light"] {
+  --home-bg: #EFEFEF;
 }
 
 [theme="dark"] {
+  --home-bg: rgba(31, 33, 37, 1);
 }
