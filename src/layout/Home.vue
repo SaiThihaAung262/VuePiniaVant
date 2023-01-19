@@ -10,6 +10,7 @@
         :key="index"
     >
       <!--{{ t(route.meta.title) }}-->
+      {{ route.meta.title }}
       <template #icon>
         <van-icon class="menu-icon" :name="route.meta.icon_select" v-if="active == index"/>
         <van-icon class="menu-icon" :name="route.meta.icon" v-else/>
@@ -29,11 +30,15 @@ const route = useRoute();
 const activeRoute = computed(() => {
   return router.currentRoute.value.path;
 });
-const active = computed(() => {
-  return homeRouters.findIndex((item) => {
-    return item.path == activeRoute.value;
-  });
+
+const active = computed({
+  get() {
+    return homeRouters.findIndex((item) => item.path === activeRoute.value);
+  },
+  set() {
+  },
 });
+
 let serviceUrl = ref("");
 if (localStorage.getItem("service")) {
 } else {

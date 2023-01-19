@@ -5,7 +5,7 @@ export const homeRouters = [
         path: "/home",
         name: "home",
         meta: {
-            title: "tabbar.home",
+            title: "Home",
             icon: "wap-home-o",
             icon_select: "wap-home",
         },
@@ -15,7 +15,7 @@ export const homeRouters = [
         path: "/account",
         name: "account",
         meta: {
-            title: "tabbar.home",
+            title: "Account",
             icon: "smile-o",
             icon_select: "smile",
         },
