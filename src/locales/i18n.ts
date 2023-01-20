@@ -1,7 +1,7 @@
 import {createI18n} from "vue-i18n";
 import messages from "./getLang";
 
-const lang = "en";
+const lang = localStorage.getItem("lang") || "en";
 const i18n = createI18n({
     legacy: false,
     locale: lang,

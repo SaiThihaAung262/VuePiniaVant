@@ -1,14 +1,14 @@
 <template>
   <van-nav-bar
-      class="navbar"
-      :title="title"
-      :left-text="leftText"
-      :left-arrow="leftArrow"
-      @click-left="onClickLeft()"
-      :right-text="rightText"
-      @click-right="onClickRight()"
-      :fixed="fixed"
-      :style="{ fontFamily: 'SF Pro', zIndex: '100' }"
+    class="navbar"
+    :title="title"
+    :left-text="leftText"
+    :left-arrow="leftArrow"
+    @click-left="onClickLeft()"
+    :right-text="rightText"
+    @click-right="onClickRight()"
+    :fixed="fixed"
+    :style="{ fontFamily: 'SF Pro', zIndex: '100' }"
   >
     >
     <template #right v-if="!rightText">
@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import {useRouter} from "vue-router";
+import { useRouter } from "vue-router";
 const props = defineProps({
   title: {
     default: "",

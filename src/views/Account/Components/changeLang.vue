@@ -21,17 +21,21 @@
 import {changeLang} from "../../../locales/i18n";
 import {reactive, watch} from "vue";
 import {useI18n} from "vue-i18n";
+import {useHomeStore} from "/@/store/useHomeStore.ts";
 
 const {t} = useI18n()
+let homeStore = useHomeStore()
+// console.log(homeStore)
 
 const state = reactive({
-  language: "en"
+  language: localStorage.getItem("lang") || en
 });
 
 watch(() => state.language,
     (newValue, oldValue) => {
       console.log("Here is state.changeLang", state.language)
       changeLang(state.language)
+      homeStore.setLanguage(state.language)
     }
 )
 </script>
